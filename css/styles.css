@@ -3,12 +3,20 @@
     --color-secondary: #00d9ff;
     --color-accent: #ff3400;
     --color-headings: #1b0760;
-    --color-body: #918ca4
+    --color-body: #918ca4;
+    --color-border: #ccc;
+    --border-radius: 30px;
+
 }
 
+* , *::after , *::before{
+    box-sizing: border-box;
+}
+/*Typography*/
 html{
     font-size: 62.5%;
 }
+
  body{
      font-family:Inter, Arial , Halvatica , sans-serif;
      color: var(--color-body);
@@ -23,11 +31,11 @@ html{
  }
 
  h1{
-     font-size: 7rem;
+     font-size: 36px;
  }
 
  h2{
-     font-size:4rem;
+     font-size:30rem;
  }
 
  h3{
@@ -38,7 +46,7 @@ html{
      margin-top: 0;
  }
 
- @media screen and (min-width:1024px){
+ @media screen and (min-width: 1024px){
      body{
          font-size: 1.8rem;
      }
@@ -55,3 +63,221 @@ html{
          font-size: 2.4rem;
      }
  }
+
+
+/*Links*/
+a{
+    text-decoration: none;
+}
+
+.link-arrow{
+    color: var(--color-accent);
+    text-transform: uppercase;
+    font-size:2rem;
+    font-weight : bold;
+}
+
+.link-arrow::after{
+    content: '-->';
+    margin-left: 5px;
+    transition: margin 0.15s;
+}
+
+.link-arrow:hover:after{
+    margin-left:10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .link-arrow{
+        font-size: 1.5rem;
+    }
+}
+
+/*Badges*/
+.badge{
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+.badge--primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+.badge--secondary{
+    background: var(--color-secondary);
+    color: white;
+}
+
+.badge--small{
+    font-size: 1.6rem;
+}
+
+@media screen and (min-width:1024px){
+    .badge{
+        font-size: 1.5rem;
+    }
+
+    .badge--small{
+        font-size: 1.2rem;
+    }
+}
+
+
+/*Lists*/
+
+.list{
+    padding-left: 0;
+    list-style: none;
+    color: var(--color-headings);
+}
+
+.list--inline .list__item {
+    display: inline;
+    margin-right: 2rem;
+
+}
+
+.list--tick {
+    list-style-image: url(../images/tick.svg);
+    padding-left: 3rem;
+}
+
+.list--tick .list__item{
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width:1024px) {
+        .list--tick .list__item {
+            padding-left : 0;
+        }
+}
+
+
+/*Icons*/
+.icon{
+    width: 40px;
+    height: 40px;
+}
+
+.icon--primary{
+    fill: var(--color-primary);
+
+}
+
+.icon-container{
+    background: #f3f9fa;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Buttons*/
+.btn{
+    font-size: 1.8rem;
+    font-weight:600;
+    text-transform: uppercase;
+    padding: 2rem 3rem;
+    border: 0;
+    border-radius: 40px;
+    cursor:pointer;
+    margin: 1rem 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+.btn--primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn--primary:hover{
+    background: #3a8ffd;
+}
+
+.btn--secondary{
+    background: var(--color-secondary);
+    color: white;
+}
+
+.btn--secondary{
+    background: #00c8eb;
+}
+
+.btn--accent{
+    background: var(--color-accent);
+    color: white;
+}
+
+.btn--accent{
+    background: #ec3000;
+}
+
+.btn--block{
+    width: 100%;
+    display: inline-block;
+}
+
+.btn--outline{
+    background: #fff;
+    color: var(--color-headings);
+    border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover{
+    background: var(--color-headings);
+    color: #fff;
+}
+
+@media  screen and (min-width: 1024px){
+    .btn{
+        font-size : 1.5rem;
+    }
+}
+
+
+/*Inputs*/
+.input{
+    padding: 1.5rem 3.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    outline: 0;
+    color: var(--color-headings);
+    font-size: 2rem;
+}
+
+::placeholder{
+    color: #cdcbd7;
+}
+
+.input-group{
+    border: 1px solid var(--color-border);
+        border-radius:var(--border-radius);
+    display: flex;
+}
+
+.input-group .input{
+    border: 0;
+    flex-grow: 1;
+    padding: 1.5rem 1rem;
+}
+
+.input-group .btn{
+    margin: 4px;
+}
+
+@media screen and (min-width: 1024px){
+    .input{
+        font-size : 1.5rem;
+    }
+}
